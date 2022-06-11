@@ -38,7 +38,7 @@ public class BookedSlotController {
 	}
 	
 	
-	@RequestMapping("teste/getBookedSlot")
+	@RequestMapping("/getBookedSlot")
 	public String getPage() {
 		return "getBookedSlot";
 	}

@@ -2,3 +2,14 @@
 	margin-left: 1px;
 	margin-right:1px;
 }
+
+.card-small{
+	margin-left: 150px;
+	margin-right:150px;
+}
+
+.text{
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom:30px;
+}
