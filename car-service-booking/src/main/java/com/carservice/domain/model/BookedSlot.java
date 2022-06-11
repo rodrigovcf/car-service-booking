@@ -5,8 +5,8 @@ public class BookedSlot {
 	private Long id;
 	private String name;
 	private String token; 
-	private String service_date; //Alter to date
-	private String slot; //Alter to enum
+	private String serviceDateSlot; //Alter to date
+	private String slot; //Alter to enum for example
 	
 	public Long getId() {
 		return id;
@@ -26,11 +26,11 @@ public class BookedSlot {
 	public void setToken(String token) {
 		this.token = token;
 	}
-	public String getService_date() {
-		return service_date;
+	public String getServiceDate() {
+		return serviceDateSlot;
 	}
-	public void setService_date(String service_date) {
-		this.service_date = service_date;
+	public void setServiceDate(String serviceDateSlot) {
+		this.serviceDateSlot = serviceDateSlot;
 	}
 	public String getSlot() {
 		return slot;
