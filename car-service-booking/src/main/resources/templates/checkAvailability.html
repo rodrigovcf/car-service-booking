@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="EN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" />
+<title>Home</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+</head>
+<body>
+
+	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+		<div class="container">
+			<a class="navbar-brand" href="#"> <img
+				src="/images/logo-service-car.png" alt="" width="160" height="154">
+			</a>
+			<h1>Online Car Service Center</h1>
+		</div>
+	</nav>
+	<div class="container container-check" id="booked">
+		<div class="row">
+		  <div class="col-sm-6">	
+			<div class="card">
+				<h5 class="card-header">Available Slots</h5>
+				<div class="card-body" >
+					<table id="availSlots" class="table table-bordered" >
+						<tbody align="center">
+							<tr>
+								<td>9am</td>
+							</tr>
+							<tr>
+								<td>10am</td>
+							</tr>
+							<tr>
+								<td>11am</td>
+							</tr>
+							<tr>
+								<td>1pm</td>
+							</tr>
+							<tr>
+								<td>2pm</td>
+							</tr>
+							<tr>
+								<td>3pm</td>
+							</tr>
+							<tr>
+								<td>4pm</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		   </div>
+			<br/>
+		   <div class="col-sm-6">
+			<div class="card">
+				<h5 class="card-header">Book slot</h5>
+				<div class="card-body">
+					<form class="row g-0">
+						<div class="mb-3">
+							<label for="date" class="form-label">Selected Date</label> 
+							<input type="text" class="form-control" id="date" /> 
+							<label for="name" class="form-label">Enter Name</label> 
+							<input type="text" class="form-control" id="name" /> 
+							<label for="slot" class="form-label">Enter Slot</label> 
+							<input type="text" class="form-control" id="slot" />
+							<br/>	
+							<button type="submit" class="btn btn-success" Id="submit">Book slot</button>
+						</div>
+						
+					</form>
+				</div>
+				
+			</div>
+			</div>
+			
+		</div>
+		<br/>
+		<a href="#" class="btn btn-primary" Id="homepage">Home Page</a>
+	</div>
+
+
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
