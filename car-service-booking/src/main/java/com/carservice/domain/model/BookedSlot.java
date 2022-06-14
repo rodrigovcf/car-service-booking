@@ -1,11 +1,11 @@
 package com.carservice.domain.model;
 
+import java.io.Serializable;
+
 import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,19 +13,21 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class BookedSlot {
+public class BookedSlot implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String token; 
+	private String slot;
 	
 	@Temporal(TemporalType.DATE)
 	private Date serviceDateSlot; 
 	
-	@Enumerated(EnumType.STRING)
-	private Slots slot;
+	
 	
 	public Long getId() {
 		return id;
@@ -51,10 +53,10 @@ public class BookedSlot {
 	public void setServiceDate(Date serviceDateSlot) {
 		this.serviceDateSlot = serviceDateSlot;
 	}
-	public Slots getSlot() {
+	public String getSlot() {
 		return slot;
 	}
-	public void setSlot(Slots slot) {
+	public void setSlot(String slot) {
 		this.slot = slot;
 	}
 	@Override

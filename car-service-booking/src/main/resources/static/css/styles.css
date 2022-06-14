@@ -8,12 +8,32 @@
 	margin-right:250px;
 }
 
+.card-default{
+	margin-top: 20px;
+	margin-bottom:20px;
+	margin-left: 20px;
+	margin-right:20px;
+}
+
+.slots{
+	margin-left: 250px;
+	margin-right:250px;
+}
+
 .text{
 	text-align: center;
 	margin-top: 30px;
 	margin-bottom:30px;
 }
 
+.btn-default{
+	margin-left: 20px;
+}
+
 .container-check{
 	margin-top: 20px;
+}
+
+.child{
+	margin: 0 auto;
 }

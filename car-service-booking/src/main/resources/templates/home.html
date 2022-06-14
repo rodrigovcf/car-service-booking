@@ -10,8 +10,8 @@
 
 	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
 		<div class="container">
-			<a class="navbar-brand" href="#"> <img
-				src="/images/logo-service-car.png" alt="" width="160" height="154">
+			<a class="navbar-brand" href="home"> <img
+				src="/images/logo-service-car.png" alt="" width="95" height="70">
 			</a>
 			<h1>Online Car Service Center</h1>
 		</div>
@@ -41,7 +41,7 @@
 			<div class="card card-small">
 				<h5 class="card-header">Do you want to book a car service slot?</h5>
 				<div class="card-body">
-					<form class="row g-0">
+					<form class="row g-0" method="POST" action="/checkAvailability">
 						<div class="mb-3">
 							<label for="date" class="form-label">Enter Date</label> 
 							<input type="text" class="form-control" id="date" />
