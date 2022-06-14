@@ -1,12 +1,31 @@
 package com.carservice.domain.model;
 
+import java.util.Date;
+import java.util.Objects;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class BookedSlot {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String token; 
-	private String serviceDateSlot; //Alter to date
-	private String slot; //Alter to enum for example
+	
+	@Temporal(TemporalType.DATE)
+	private Date serviceDateSlot; 
+	
+	@Enumerated(EnumType.STRING)
+	private Slots slot;
 	
 	public Long getId() {
 		return id;
@@ -26,18 +45,32 @@ public class BookedSlot {
 	public void setToken(String token) {
 		this.token = token;
 	}
-	public String getServiceDate() {
+	public Date getServiceDate() {
 		return serviceDateSlot;
 	}
-	public void setServiceDate(String serviceDateSlot) {
+	public void setServiceDate(Date serviceDateSlot) {
 		this.serviceDateSlot = serviceDateSlot;
 	}
-	public String getSlot() {
+	public Slots getSlot() {
 		return slot;
 	}
-	public void setSlot(String slot) {
+	public void setSlot(Slots slot) {
 		this.slot = slot;
 	}
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, slot, token);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BookedSlot other = (BookedSlot) obj;
+		return Objects.equals(id, other.id) && slot == other.slot && Objects.equals(token, other.token);
+	}
 	
 }
