@@ -1,4 +1,4 @@
-package com.carservice.api.controller;
+package com.carservice.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +14,12 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/checkAvailability", method = RequestMethod.POST)
-	public String getSlotAvailability(BookedSlot bookedSlot) {
-		
-		System.out.println("Data = " + bookedSlot.getServiceDate());
-		
-		return "checkAvailability";
-	}
+//	@RequestMapping(value = "/checkAvailability", method = RequestMethod.POST)
+//	public String getSlotAvailability(BookedSlot bookedSlot) {
+//		
+//		System.out.println("Data = " + bookedSlot.getServiceDate());
+//		
+//		return "checkAvailability";
+//	}
 
 }

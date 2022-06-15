@@ -1,17 +1,29 @@
-package com.carservice.api.controller;
+package com.carservice.controller;
 
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.carservice.domain.model.BookedSlot;
+import com.carservice.repository.BookedSlotRep;
+import com.carservice.useful.Tokens;
 
 @Controller
 public class BookedSlotController {
 
+	
+	@RequestMapping("/bookSlot")
+	public String showBookSlot() {
+		return "bookSlot";
+	}
+	
+	
 	@GetMapping("/getBookedSlot")
 	public List<BookedSlot> listTest() {
 
@@ -38,10 +50,7 @@ public class BookedSlotController {
 //		return "getBookedSlot";
 //	}
 	
-	@RequestMapping("/bookSlot")
-	public String showBookSlot() {
-		return "bookSlot";
-	}
+	
 
 
 }

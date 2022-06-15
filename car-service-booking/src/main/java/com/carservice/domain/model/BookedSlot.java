@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class BookedSlot implements Serializable{
 	
@@ -24,10 +26,9 @@ public class BookedSlot implements Serializable{
 	private String token; 
 	private String slot;
 	
+	@DateTimeFormat(pattern = "dd-MM-yyyy" )
 	@Temporal(TemporalType.DATE)
-	private Date serviceDateSlot; 
-	
-	
+	private Date date; 
 	
 	public Long getId() {
 		return id;
@@ -47,11 +48,11 @@ public class BookedSlot implements Serializable{
 	public void setToken(String token) {
 		this.token = token;
 	}
-	public Date getServiceDate() {
-		return serviceDateSlot;
+	public Date getDate() {
+		return date;
 	}
-	public void setServiceDate(Date serviceDateSlot) {
-		this.serviceDateSlot = serviceDateSlot;
+	public void setDate(Date serviceDateSlot) {
+		this.date = serviceDateSlot;
 	}
 	public String getSlot() {
 		return slot;
