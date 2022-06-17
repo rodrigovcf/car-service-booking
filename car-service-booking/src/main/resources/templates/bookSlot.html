@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<html lang="EN" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="EN" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
 <head>
 <meta charset="UTF-8" />
 <title>Book Slot</title>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/styles.css" />
 </head>
-<body>
-
-	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-		<div class="container">
-			<a class="navbar-brand" href="home"> <img
-				src="/images/logo-service-car.png" alt="" width="95" height="70">
-			</a>
-			<h1>Online Car Service Center</h1>
-		</div>
-	</nav>
-	
+<section layout:fragment="content">
 	<div class="card card-default">
 		<h5 class="card-header">Request Status</h5>
-			<div class="card-body">
-				Your slot booked successfully, please note your token number for future use, <Strong>Token:?????????</Strong>
-			</div>
+		<div class="card-body">
+			Your slot booked successfully, please note your token number for
+			future use, <Strong>Token:?????????</Strong>
+		</div>
 	</div>
 	<a href="home" class="btn btn-primary btn-default">Home Page</a>
-	
 
-</body>
+	<script src="/js/js-library.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</section>
 </html>

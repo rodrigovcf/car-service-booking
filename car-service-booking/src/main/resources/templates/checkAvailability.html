@@ -1,31 +1,37 @@
 <!DOCTYPE html>
-<html lang="EN" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="EN" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+
 <head>
 <meta charset="UTF-8" />
-<title>Home</title>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+<title>Check Availability</title>
 </head>
-<body>
 
-	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-		<div class="container">
-			<a class="navbar-brand" href="home"> <img
-				src="/images/logo-service-car.png" alt="" width="95" height="70">
-			</a>
-			<h1>Online Car Service Center</h1>
-		</div>
-	</nav>
+<section layout:fragment="content">
 	<div class="container container-check" id="booked">
+		<div
+			class="alert alert-success alert-dismissible 
+					fade show child success"
+			role="alert" th:if="${!#strings.isEmpty(message)}">
+			<span th:text="${message}"></span>
+			<button type="button" class="btn-close" data-bs-dismiss="alert"
+				aria-label="Close"></button>
+		</div>
+
 		<div class="row">
 			<div class="col-sm-3 child">
-				<table id="availSlots" class="table table-bordered">
+				<table id="availSlots" class="table table-bordered table-striped">
 					<thead>
 						<tr class="table-dark">
 							<th scope="col">Available Slots</th>
 						</tr>
 					</thead>
 					<tbody align="center">
+						<tr>
+							<td>No slot available for this data</td>
+						</tr>
 						<tr>
 							<td>9am</td>
 						</tr>
@@ -58,12 +64,11 @@
 						<form class="row g-0" method="POST" action="/checkAvailability">
 							<div class="mb-3">
 								<label for="date" class="form-label">Selected Date</label> <input
-									type="text" class="form-control" id="date"
-									name="date" /> <label for="name" class="form-label">Enter
-									Name</label> <input type="text" class="form-control" id="name"
-									name="name" /> <label for="slot" class="form-label">Enter
-									Slot</label> <input type="text" class="form-control" id="slot"
-									name="slot" /> <br />
+									type="text" class="form-control" id="date" name="date" /> <label
+									for="name" class="form-label">Enter Name</label> <input
+									type="text" class="form-control" id="name" name="name" /> <label
+									for="slot" class="form-label">Enter Slot</label> <input
+									type="text" class="form-control" id="slot" name="slot" /> <br />
 								<button type="submit" class="btn btn-success" Id="submit">Book
 									slot</button>
 							</div>
@@ -77,8 +82,6 @@
 		<br /> <a href="home" class="btn btn-primary" Id="homepage">Home
 			Page</a>
 	</div>
+</section>
 
-
-	<script src="/js/bootstrap.min.js"></script>
-</body>
 </html>

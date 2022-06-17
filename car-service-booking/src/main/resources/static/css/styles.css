@@ -1,3 +1,8 @@
+.default{
+	margin-left: 70px;
+	margin-right:70px;
+}
+
 .card{
 	margin-left: 1px;
 	margin-right:1px;
@@ -36,4 +41,8 @@
 
 .child{
 	margin: 0 auto;
+}
+
+.success{
+	margin-bottom: 20px;
 }

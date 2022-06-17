@@ -1,21 +1,15 @@
 <!DOCTYPE html>
-<html lang="EN" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="EN" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
 <head>
 <meta charset="UTF-8" />
 <title>Home</title>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/styles.css" />
 </head>
-<body>
-
-	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-		<div class="container">
-			<a class="navbar-brand" href="home"> <img
-				src="/images/logo-service-car.png" alt="" width="95" height="70">
-			</a>
-			<h1>Online Car Service Center</h1>
-		</div>
-	</nav>
+<section layout:fragment="content">
 	<div class="container" id="booked">
 		<div class="card-body">
 
@@ -54,7 +48,7 @@
 		</div>
 	</div>
 
-
+	<script src="/js/js-library.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
-</body>
+</section>
 </html>
