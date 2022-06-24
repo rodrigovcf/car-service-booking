@@ -18,10 +18,11 @@
 				<div class="card-body">
 					<form class="row g-0">
 						<div class="mb-3">
-							<label for="token" class="form-label">Enter token</label> 
-							<input type="text" class="form-control" id="token" />
+							<label for="token" class="form-label">Enter token</label> <input
+								type="text" class="form-control" id="token" />
 						</div>
-						<button type="submit" class="btn btn-primary" id="tsubmit">View/Modify existing slot</button>
+						<button type="submit" class="btn btn-primary" id="tsubmit">View/Modify
+							existing slot</button>
 					</form>
 				</div>
 			</div>
@@ -34,15 +35,25 @@
 
 			<div class="card card-small">
 				<h5 class="card-header">Do you want to book a car service slot?</h5>
+				<!-- <div class="card-body">
+				 	<div class="mb-3">
+						<label for="date" class="form-label">Enter Date</label> <input
+							type="text" class="form-control" name="date" id="date" />
+					</div>
+					<a class="btn btn-primary" th:href="@{checkAvailability(date='${date}')}">Check available slots</a>
+		
+				</div> -->
+				
 				<div class="card-body">
-					<form class="row g-0" method="POST" action="/checkAvailability">
+					<form class="row g-0" th:action="@{checkAvailability}" method="get">
 						<div class="mb-3">
-							<label for="date" class="form-label">Enter Date</label> 
-							<input type="text" class="form-control" id="date" />
+							<label for="token" class="form-label">Enter Date</label> 
+							<input type="text" class="form-control" name="date" id="date" required="required"/>
 						</div>
-						<button type="submit" class="btn btn-primary" id="bsubmit">Check available slots</button>
+						<button type="submit" class="btn btn-primary" id="tsubmit">Check available slot</button>
 					</form>
 				</div>
+				
 			</div>
 
 		</div>

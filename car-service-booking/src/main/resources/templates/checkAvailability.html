@@ -28,30 +28,12 @@
 							<th scope="col">Available Slots</th>
 						</tr>
 					</thead>
-					<tbody align="center">
-						<tr>
-							<td>No slot available for this data</td>
+					<tbody align="center">						
+						<tr th:each="available : ${slots}">
+							<td th:text="${available.slot}"></td>
 						</tr>
 						<tr>
-							<td>9am</td>
-						</tr>
-						<tr>
-							<td>10am</td>
-						</tr>
-						<tr>
-							<td>11am</td>
-						</tr>
-						<tr>
-							<td>1pm</td>
-						</tr>
-						<tr>
-							<td>2pm</td>
-						</tr>
-						<tr>
-							<td>3pm</td>
-						</tr>
-						<tr>
-							<td>4pm</td>
+							<td th:if="${#lists.isEmpty(slots)}">No slot available for this data</td>
 						</tr>
 					</tbody>
 				</table>
@@ -64,7 +46,7 @@
 						<form class="row g-0" method="POST" action="/checkAvailability">
 							<div class="mb-3">
 								<label for="date" class="form-label">Selected Date</label> <input
-									type="text" class="form-control" id="date" name="date" /> <label
+									type="text" class="form-control" id="date" name="date" th:value="${date}" readonly/> <label
 									for="name" class="form-label">Enter Name</label> <input
 									type="text" class="form-control" id="name" name="name" /> <label
 									for="slot" class="form-label">Enter Slot</label> <input
@@ -74,13 +56,11 @@
 							</div>
 						</form>
 					</div>
-
 				</div>
 			</div>
 
 		</div>
-		<br /> <a href="home" class="btn btn-primary" Id="homepage">Home
-			Page</a>
+		<br /> <a href="/home" class="btn btn-primary" Id="homepage">Home Page</a>
 	</div>
 </section>
 
