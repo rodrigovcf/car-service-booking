@@ -11,6 +11,14 @@
 </head>
 
 <section layout:fragment="content">
+	<div id="error"
+		class="alert alert-success alert-dismissible 
+					fade show child success"
+		role="alert" th:if="${!#strings.isEmpty(message)}">
+		<span th:text="${message}"></span>
+		<button type="button" class="btn-close" data-bs-dismiss="alert"
+			aria-label="Close"></button>
+	</div>
 	<div id="booked" class="card card-default">
 		<div class="card-header">
 			<h3 class="container">Booked Slots</h3>
@@ -26,18 +34,25 @@
 					</tr>
 				</thead>
 				<tbody>
+					<tr th:each="bookeds : ${slots}">
+						<td th:text="${bookeds.name}"></td>
+						<td th:text="${bookeds.date.date}"></td>
+						<td th:text="${bookeds.slot}"></td>
+						<td><a id="cancel" href="" class="btn btn-danger">Cancel</a></td>
+					</tr>
 					<tr>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td><a href="" class="btn btn-danger">Cancel</a></td>
+						<td colspan="6" th:if="${#lists.isEmpty(slots)}">No slot available for
+							this token</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
-
 	</div>
-	<a href="home" class="btn btn-primary btn-default">Home Page</a>
+
+	<div id="homepage">
+		<a href="home" class="btn btn-primary btn-default">Home Page</a>
+	</div>
+
 	<script src="/js/js-library.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 </section>

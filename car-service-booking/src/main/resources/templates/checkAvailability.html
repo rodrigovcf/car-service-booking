@@ -11,7 +11,7 @@
 
 <section layout:fragment="content">
 	<div class="container container-check" id="booked">
-		<div
+		<div id="error"
 			class="alert alert-success alert-dismissible 
 					fade show child success"
 			role="alert" th:if="${!#strings.isEmpty(message)}">
@@ -60,7 +60,7 @@
 			</div>
 
 		</div>
-		<br /> <a href="/home" class="btn btn-primary" Id="homepage">Home Page</a>
+		<br /> 	<div id="homepage"><a href="home" class="btn btn-primary btn-default">Home Page</a></div>
 	</div>
 </section>
 

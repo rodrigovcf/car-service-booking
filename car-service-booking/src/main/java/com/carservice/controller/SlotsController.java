@@ -67,5 +67,15 @@ public class SlotsController {
 		return "bookSlot";
 	}
 	
+	@RequestMapping(path = "/getBookedSlot", method = RequestMethod.GET)
+	public ModelAndView showSlotsBookeds(@RequestParam String token, Model model) {
+		model.addAttribute("token", token);
+		
+		ModelAndView mv = new ModelAndView("/getBookedSlot");
+		
+		mv.addObject("slots",availableSlotsRep.findByToken(token));
+		
+		return mv; 
+	}
 }
 
