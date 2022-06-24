@@ -19,7 +19,7 @@ import com.carservice.repository.DateSlotsRep;
 import com.carservice.services.SlotsService;
 
 @Controller
-public class CheckSlotsController {
+public class SlotsController {
 
 	@Autowired
 	private AvailableSlotsRep availableSlotsRep;
@@ -29,6 +29,11 @@ public class CheckSlotsController {
 
 	@Autowired
 	private SlotsService service;
+	
+	@RequestMapping(value = "/home")
+	public String showHome() {
+		return "home";
+	}
 
 	@RequestMapping(path = "/checkAvailability", method = RequestMethod.GET)
 	public ModelAndView showSlots(@RequestParam String date, Model model) throws ParseException{
@@ -42,8 +47,11 @@ public class CheckSlotsController {
 	}
 
 
-	@RequestMapping(value = "/checkAvailability", method = RequestMethod.POST)
-	public ModelAndView saveBooking(@RequestParam String name, @RequestParam String date, @RequestParam String slot) throws ParseException {
+	@RequestMapping(value = "/bookSlot", method = RequestMethod.POST)
+	public String saveBooking(@RequestParam String name, 
+									@RequestParam String date, 
+									@RequestParam String slot,
+									Model model) throws ParseException {
 
 		List<DateSlots> dates = dtSlotRep.findByDate(new SimpleDateFormat("yyyy-MM-dd").parse(date));
 
@@ -55,10 +63,9 @@ public class CheckSlotsController {
 		availableSlot.setSlot(slot);
 
 		availableSlotsRep.save(availableSlot);
-
-		ModelAndView mv = new ModelAndView("checkAvailability");
-		mv.addObject("message", "Booked successfully!");
-		return mv;
+		model.addAttribute("token", availableSlot.getToken());
+		return "bookSlot";
 	}
-
+	
 }
+

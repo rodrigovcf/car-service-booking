@@ -12,9 +12,9 @@
 <section layout:fragment="content">
 	<div class="card card-default">
 		<h5 class="card-header">Request Status</h5>
-		<div class="card-body">
+		<div id="token" class="card-body">
 			Your slot booked successfully, please note your token number for
-			future use, <Strong>Token:?????????</Strong>
+			future use,Token: <span th:text="${token}"></span>
 		</div>
 	</div>
 	<a href="home" class="btn btn-primary btn-default">Home Page</a>
