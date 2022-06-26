@@ -83,7 +83,7 @@ public class SlotsController {
 	public ModelAndView deleteBookedSlots(@RequestParam String token, Model model) {
 		model.addAttribute("token", token);
 
-		availableSlotsRep.deleteByToken(token);
+		service.freeSlot(token);
 		
 		ModelAndView mv = new ModelAndView("/cancel");
 		

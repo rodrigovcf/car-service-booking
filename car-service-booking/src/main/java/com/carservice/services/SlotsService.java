@@ -26,11 +26,11 @@ public class SlotsService {
 
 	public List<AvailableSlots> loadSlots(String date) throws ParseException {
 
-		DateSlots dateSlots = new DateSlots(new SimpleDateFormat("yyyy-MM-dd").parse(date), null);
-
-		if (!dateSlotsRep.existsByDate(dateSlots.getDate())){
+		DateSlots dateSlots = new DateSlots(new SimpleDateFormat("yyyy-MM-dd").parse(date), null);		
+		
+		if (!dateSlotsRep.existsByDate(dateSlots.getDate())) {
 			dateFullFree(dateSlots.getDate());
-		}
+		} 
 
 		List<DateSlots> dates = dateSlotsRep.findByDate(dateSlots.getDate());
 		List<AvailableSlots> avail = availableSlotsRep.findByDate(dates.get(0));
@@ -57,6 +57,16 @@ public class SlotsService {
 
 		dateSlotsRep.save(date);
 		availableSlotsRep.saveAll(Arrays.asList(slot1,slot2,slot3,slot4, slot5, slot6, slot7));
+	}
+	
+	public void freeSlot(String token) {
+		List<AvailableSlots> slot = availableSlotsRep.findByToken(token);
+
+		slot.get(0).setName(null);
+		slot.get(0).setTokenNull();
+		slot.get(0).setAvailable(false);
+
+		availableSlotsRep.save(slot.get(0));
 	}
 
 }

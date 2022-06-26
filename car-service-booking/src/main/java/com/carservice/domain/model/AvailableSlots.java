@@ -143,6 +143,10 @@ public class AvailableSlots implements Serializable{
 	public String toString() {
 		return "AvailableSlots [id=" + id + ", date=" + date + ", name=" + name + ", token=" + token + ", slot=" + slot
 				+ ", available=" + available + "]";
+	}
+
+	public void setTokenNull() {
+		this.token = null;
 	}	
 	
 }
