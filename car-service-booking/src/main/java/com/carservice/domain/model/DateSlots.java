@@ -33,7 +33,7 @@ public class DateSlots implements Serializable{
 	private Long id;
 
 	@OneToMany(mappedBy = "date", targetEntity = AvailableSlots.class, cascade=CascadeType.ALL)
-	private List<AvailableSlots> availableSlots;// = new ArrayList<>();
+	private List<AvailableSlots> availableSlots;
 
 	public DateSlots() {}
 	

@@ -38,7 +38,11 @@
 						<td th:text="${bookeds.name}"></td>
 						<td th:text="${bookeds.date.date}"></td>
 						<td th:text="${bookeds.slot}"></td>
-						<td><a id="cancel" href="" class="btn btn-danger">Cancel</a></td>
+						<!-- <td id="token" name="token" th:text="${bookeds.token}"></td> -->
+						<!-- <a th:href="@{/index(param1='value1',param2='value2')}"> -->
+						<td><a id="cancel" th:href="@{/cancel(token=${bookeds.token})}" class="btn btn-danger">Cancel</a></td>
+						
+						
 					</tr>
 					<tr>
 						<td colspan="6" th:if="${#lists.isEmpty(slots)}">No slot available for

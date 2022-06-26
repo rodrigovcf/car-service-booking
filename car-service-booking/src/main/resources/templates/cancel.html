@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="EN" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8" />
+<title>Book Slot</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+</head>
+<section layout:fragment="content">
+	<div class="card card-default">
+		<h5 class="card-header">Cancel Booking</h5>
+		<div id="token" class="card-body">
+			Success: Your booking with token number <span th:text="${token}"></span> is cancelled
+		</div>
+	</div>
+	
+	<div id="homepage"><a href="home" class="btn btn-primary btn-default">Home Page</a></div>
+
+	<script src="/js/js-library.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</section>
+</html>
