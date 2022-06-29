@@ -16,7 +16,7 @@ public interface AvailableSlotsRep extends JpaRepository<AvailableSlots, Long>{
 	List<AvailableSlots> findBySlot(String slot);
 	List<AvailableSlots> findByToken(String token);
 	
-	@Query(value = "SELECT * FROM servicecar.tb_available_slots WHERE id_date = :idDate and slot = :slot", nativeQuery = true)
+	@Query(value = "SELECT * FROM tb_available_slots WHERE id_date = :idDate and slot = :slot", nativeQuery = true)
 	AvailableSlots findSlotUpdate(Long idDate, @Param("slot") String slot);
 		
 }

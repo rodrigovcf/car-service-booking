@@ -3,12 +3,15 @@ package com.carservice.useful;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Logger;
 
 public class DateComparation {
 	
 	private DateComparation() {}
-
-	public static boolean comparation(String dateText) {
+	
+	private static Logger log = Logger.getLogger(DateComparation.class.getName());	
+	
+			public static boolean comparation(String dateText) {
 		try {
 			SimpleDateFormat sdformat = new SimpleDateFormat("yyyy-MM-dd");
 			Date today = new Date();
@@ -18,7 +21,7 @@ public class DateComparation {
 				return true;
 			
 		} catch (ParseException ex) {
-			System.err.print(ex.toString());
+			log.info("Error " + ex.toString());
 		}
 		return false;
 	}

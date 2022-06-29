@@ -7,6 +7,8 @@
 <head>
 <meta charset="UTF-8" />
 <title>Check Availability</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 
 <section layout:fragment="content">
@@ -62,11 +64,12 @@
 			</div>
 
 		</div>
-		<br /> 	<div id="homepage"><a href="home" class="btn btn-primary btn-default">Home Page</a></div>
+		<br /> 	<div id="homepage"><a th:href="@{home}" class="btn btn-primary btn-default">Home Page</a></div>
 	</div>
-	<script src="/js/jslibrary.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	<script src="/js/validate.js"></script>
-	<script src="/js/chkavailablevalidation.js"></script>
+	<script th:src="@{/js/jslibrary.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/validate.js}"></script>
+	<script th:src="@{/js/homevalidation.js}"></script>
+	<script th:src="@{/js/chkavailablevalidation.js}"></script>
 </section>
 </html>

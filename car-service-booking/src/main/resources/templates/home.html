@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8" />
 <title>Home</title>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 <section layout:fragment="content">
 	<div class="container" id="booked">
@@ -53,10 +53,10 @@
 
 		</div>
 	</div>
-	<script src="/js/jslibrary.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	<script src="/js/validate.js"></script>
-	<script src="/js/homevalidation.js"></script>
-	<script src="/js/mask.js"></script>
+	<script th:src="@{/js/jslibrary.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/validate.js}"></script>
+	<script th:src="@{/js/homevalidation.js}"></script>
+	<script th:src="@{/js/mask.js}"></script>
 </section>
 </html>

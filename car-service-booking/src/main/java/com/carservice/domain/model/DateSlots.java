@@ -109,9 +109,4 @@ public class DateSlots implements Serializable{
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "DateSlots [date=" + date + ", id=" + id + ", availableSlots=" + availableSlots + "]";
-	}
-	
 }

@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8" />
 <title>Booked Slots</title>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 
 <section layout:fragment="content">
@@ -43,10 +43,10 @@
 	</div>
 
 	<div id="homepage">
-		<a href="home" class="btn btn-primary btn-default">Home Page</a>
+		<a th:href="@{home}" class="btn btn-primary btn-default">Home Page</a>
 	</div>
 	
-	<script src="/js/jslibrary.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+	<script th:src="@{/js/jslibrary.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
 </section>
 </html>

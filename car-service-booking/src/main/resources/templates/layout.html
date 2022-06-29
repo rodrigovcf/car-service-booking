@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="EN" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="EN" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
 <title>Car Service Center</title>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 <body>
 
-	<nav class="navbar navbar-light" style="background-color: rgb(208, 222, 234);">
+	<nav class="navbar navbar-light"
+		style="background-color: rgb(208, 222, 234);">
 		<div class="container">
 			<a class="navbar-brand" href="home"> <img
-				src="/images/logo-service-car.png" alt="" width="95" height="70">
+				th:src="@{/images/logo-service-car.png}" alt="" width="95" height="70">
 			</a>
 			<h2>Online Car Service Center</h2>
 		</div>
@@ -22,8 +25,8 @@
 	</section>
 
 
-	<script src="/js/jslibrary.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+	<script th:src="@{/js/jslibrary.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
 
 </body>
 </html>
