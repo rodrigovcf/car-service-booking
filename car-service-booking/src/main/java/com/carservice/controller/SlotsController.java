@@ -50,9 +50,8 @@ public class SlotsController {
 
 		ModelAndView mv = new ModelAndView("/checkAvailability");
 		
-		slotsList = service.loadSlots(date);
-		
 		if(DateComparation.comparation(date)) {
+			slotsList = service.loadSlots(date);
 			mv.addObject("slots", slotsList);
 			return mv;
 		}else {
