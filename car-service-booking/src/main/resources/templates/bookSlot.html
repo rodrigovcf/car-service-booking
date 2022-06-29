@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html lang="EN" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
@@ -16,11 +16,16 @@
 			Your slot booked successfully, please note your token number for
 			future use,Token: <span th:text="${token}"></span>
 		</div>
-	</div>
-	
-	<div id="homepage"><a href="home" class="btn btn-primary btn-default">Home Page</a></div>
+		<div id="error" class="error">
+					<p th:text=${message}></p>
+				</div> 
+		</div>
 
-	<script src="/js/js-library.js"></script>
+	<div id="homepage">
+		<a href="home" class="btn btn-primary btn-default">Home Page</a>
+	</div>
+
+	<script src="/js/jslibrary.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 </section>
 </html>

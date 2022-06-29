@@ -46,3 +46,15 @@
 .success{
 	margin-bottom: 20px;
 }
+
+.errorhome{
+	text-align: center;
+	font-weight: bold;
+	color: red;
+}
+
+.error{
+	text-align: left;
+	font-weight: bold;
+	color: red;
+}

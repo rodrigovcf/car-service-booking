@@ -11,14 +11,6 @@
 </head>
 
 <section layout:fragment="content">
-	<div id="error"
-		class="alert alert-success alert-dismissible 
-					fade show child success"
-		role="alert" th:if="${!#strings.isEmpty(message)}">
-		<span th:text="${message}"></span>
-		<button type="button" class="btn-close" data-bs-dismiss="alert"
-			aria-label="Close"></button>
-	</div>
 	<div id="booked" class="card card-default">
 		<div class="card-header">
 			<h3 class="container">Booked Slots</h3>
@@ -38,15 +30,12 @@
 						<td th:text="${bookeds.name}"></td>
 						<td th:text="${bookeds.date.date}"></td>
 						<td th:text="${bookeds.slot}"></td>
-						<!-- <td id="token" name="token" th:text="${bookeds.token}"></td> -->
-						<!-- <a th:href="@{/index(param1='value1',param2='value2')}"> -->
 						<td><a id="cancel" th:href="@{/cancel(token=${bookeds.token})}" class="btn btn-danger">Cancel</a></td>
-						
-						
 					</tr>
 					<tr>
-						<td colspan="6" th:if="${#lists.isEmpty(slots)}">No slot available for
-							this token</td>
+						<td colspan="6" th:if="${#lists.isEmpty(slots)}">
+							<div id=error class="error">Failure: No booking found for given token number</div>
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -56,8 +45,8 @@
 	<div id="homepage">
 		<a href="home" class="btn btn-primary btn-default">Home Page</a>
 	</div>
-
-	<script src="/js/js-library.js"></script>
+	
+	<script src="/js/jslibrary.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 </section>
 </html>

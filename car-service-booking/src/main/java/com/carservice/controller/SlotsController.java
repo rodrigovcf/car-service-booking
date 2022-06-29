@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,6 +18,8 @@ import com.carservice.domain.model.DateSlots;
 import com.carservice.repository.AvailableSlotsRep;
 import com.carservice.repository.DateSlotsRep;
 import com.carservice.services.SlotsService;
+import com.carservice.useful.CheckSlots;
+import com.carservice.useful.DateComparation;
 
 @Controller
 public class SlotsController {
@@ -31,46 +33,68 @@ public class SlotsController {
 	@Autowired
 	private SlotsService service;
 	
-	@RequestMapping(value = "/home")
+	private static String tokenParam = "token";
+	private static String errorParam = "error";
+	
+	private List<AvailableSlots> slotsList; 
+	
+	@GetMapping(value = "/home")
 	public String showHome() {
 		return "home";
 	}
 
-	@RequestMapping(path = "/checkAvailability", method = RequestMethod.GET)
+	@GetMapping(path = "/checkAvailability")
 	public ModelAndView showSlots(@RequestParam String date, Model model) throws ParseException{
 
 		model.addAttribute("date", date);
 
 		ModelAndView mv = new ModelAndView("/checkAvailability");
-
-		mv.addObject("slots", service.loadSlots(date));
+		
+		slotsList = service.loadSlots(date);
+		
+		if(DateComparation.comparation(date)) {
+			mv.addObject("slots", slotsList);
+			return mv;
+		}else {
+			mv = new ModelAndView("home");
+			mv.addObject("result", "The date cannot be less than the current date.(date)");
+		}
+			
 		return mv;
 	}
 
 
-	@RequestMapping(value = "/bookSlot", method = RequestMethod.POST)
-	public String saveBooking(@RequestParam String name, 
+	@PostMapping(value = "/bookSlot")
+	public ModelAndView saveBooking(@RequestParam String name, 
 									@RequestParam String date, 
 									@RequestParam String slot,
 									Model model) throws ParseException {
 
+		ModelAndView mv = new ModelAndView("/bookSlot");
 		List<DateSlots> dates = dtSlotRep.findByDate(new SimpleDateFormat("yyyy-MM-dd").parse(date));
 
-		AvailableSlots availableSlot = availableSlotsRep.findSlotUpdate(dates.get(0).getId(),slot);
+		if(CheckSlots.verifySlot(slotsList, slot)) {
+			
+			AvailableSlots availableSlot = availableSlotsRep.findSlotUpdate(dates.get(0).getId(),slot);
 
-		availableSlot.setName(name);
-		availableSlot.setToken();
-		availableSlot.setAvailable(true);
-		availableSlot.setSlot(slot);
+			availableSlot.setName(name);
+			availableSlot.setToken();
+			availableSlot.setAvailable(true);
+			availableSlot.setSlot(slot);
 
-		availableSlotsRep.save(availableSlot);
-		model.addAttribute("token", availableSlot.getToken());
-		return "bookSlot";
+			availableSlotsRep.save(availableSlot);
+			model.addAttribute(tokenParam, availableSlot.getToken());
+			return mv;
+		}
+		mv = new ModelAndView(errorParam);
+		mv.addObject("result", "Slot not available!");
+		
+		return mv;
 	}
 	
-	@RequestMapping(path = "/getBookedSlot", method = RequestMethod.GET)
+	@GetMapping(path = "/getBookedSlot")
 	public ModelAndView showBookedSlots(@RequestParam String token, Model model) {
-		model.addAttribute("token", token);
+		model.addAttribute(tokenParam, token);
 		
 		ModelAndView mv = new ModelAndView("/getBookedSlot");
 		
@@ -79,29 +103,27 @@ public class SlotsController {
 		return mv; 
 	}
 	
-	@RequestMapping(path = "/cancel", method = RequestMethod.GET)
+	@GetMapping(path = "/cancel")
 	public ModelAndView deleteBookedSlots(@RequestParam String token, Model model) {
-		model.addAttribute("token", token);
+		model.addAttribute(tokenParam, token);
 
 		service.freeSlot(token);
 		
 		ModelAndView mv = new ModelAndView("/cancel");
 		
-		mv.addObject("token", token);
+		mv.addObject(tokenParam, token);
 		
 		return mv; 
 	}
 	
-	@RequestMapping(path = "/error", method = RequestMethod.GET)
+	@GetMapping(path = "/error")
 	public ModelAndView errorShow(Errors errors) {
 		
-		ModelAndView mv = new ModelAndView("/error");
+		ModelAndView mv = new ModelAndView(errorParam);
 		
-		mv.addObject("error", errors);
+		mv.addObject(errorParam, errors);
 		
 		return mv; 
 	}
 	
-	
 }
-

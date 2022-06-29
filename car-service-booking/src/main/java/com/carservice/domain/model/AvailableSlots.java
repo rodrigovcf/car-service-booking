@@ -27,20 +27,20 @@ public class AvailableSlots implements Serializable{
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "id_date")
 	private DateSlots date;
-	
+
 	@Column(name = "name", nullable = true)
 	private String name;
-	
+
 	@Column(name = "token", nullable = true)
 	private String token;
-	
-	@Column(name = "slot", nullable = true)
+
+	@Column(name = "slot")
 	private String slot;
-	
+
 	private Boolean available;
-	
+
 	public AvailableSlots() {}
-	
+
 	public AvailableSlots(Long id, DateSlots date, String name, String token, String slot, Boolean available) {
 		super();
 		this.id = id;
@@ -50,7 +50,7 @@ public class AvailableSlots implements Serializable{
 		this.slot = slot;
 		this.available = available;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -76,6 +76,9 @@ public class AvailableSlots implements Serializable{
 		String generationToken = Tokens.tokenGenerate().substring(0,10);
 		this.token = generationToken;
 	}
+	public void setTokenNull() {
+		this.token = null;
+	}
 	public String getSlot() {
 		return slot;
 	}
@@ -88,18 +91,19 @@ public class AvailableSlots implements Serializable{
 	public void setAvailable(Boolean available) {
 		this.available = available;
 	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((available == null) ? 0 : available.hashCode());
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((slot == null) ? 0 : slot.hashCode());
 		result = prime * result + ((token == null) ? 0 : token.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -109,11 +113,6 @@ public class AvailableSlots implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		AvailableSlots other = (AvailableSlots) obj;
-		if (available == null) {
-			if (other.available != null)
-				return false;
-		} else if (!available.equals(other.available))
-			return false;
 		if (date == null) {
 			if (other.date != null)
 				return false;
@@ -124,12 +123,10 @@ public class AvailableSlots implements Serializable{
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (slot == null) {
+			if (other.slot != null)
 				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (slot != other.slot)
+		} else if (!slot.equals(other.slot))
 			return false;
 		if (token == null) {
 			if (other.token != null)
@@ -138,17 +135,15 @@ public class AvailableSlots implements Serializable{
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "AvailableSlots [id=" + id + ", date=" + date + ", name=" + name + ", token=" + token + ", slot=" + slot
 				+ ", available=" + available + "]";
 	}
 
-	public void setTokenNull() {
-		this.token = null;
-	}	
-	
+
+
 }
 
 

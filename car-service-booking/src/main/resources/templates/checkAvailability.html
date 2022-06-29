@@ -30,7 +30,8 @@
 					</thead>
 					<tbody align="center">						
 						<tr th:each="available : ${slots}">
-							<td th:text="${available.slot}"></td>
+							
+							<td id="sl" th:text="${available.slot}"></td>
 						</tr>
 						<tr>
 							<td th:if="${#lists.isEmpty(slots)}">No slot available for this data</td>
@@ -43,7 +44,8 @@
 				<div class="card">
 					<h5 class="card-header">Book slot</h5>
 					<div class="card-body">
-						<form class="row g-0" th:action="@{bookSlot}" method="POST">
+					<div id="error" class="error"></div>
+						<form id="slotform" class="row g-0" th:action="@{bookSlot}" method="POST">
 							<div class="mb-3">
 								<label for="date" class="form-label">Selected Date</label> <input
 									type="text" class="form-control" id="date" name="date" th:value="${date}" readonly/> <label
@@ -62,6 +64,9 @@
 		</div>
 		<br /> 	<div id="homepage"><a href="home" class="btn btn-primary btn-default">Home Page</a></div>
 	</div>
+	<script src="/js/jslibrary.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/validate.js"></script>
+	<script src="/js/chkavailablevalidation.js"></script>
 </section>
-
 </html>

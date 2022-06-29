@@ -11,15 +11,17 @@
 </head>
 <section layout:fragment="content">
 	<div class="container" id="booked">
+	<div id="error" class="errorhome"><span id="result" th:text="${result}"></span></div>
 		<div class="card-body">
-
+			
 			<div class="card card-small">
 				<h5 class="card-header">Already have a booking?</h5>
 				<div class="card-body">
-					<form class="row g-0" th:action="@{getBookedSlot}" method="get">
+					<form id="entertoken" name="enter-token" class="row g-0"
+						th:action="@{getBookedSlot}" method="get">
 						<div class="mb-3">
 							<label for="token" class="form-label">Enter token</label> <input
-								type="text" class="form-control" id="token" name="token" required="required"/>
+								type="text" class="form-control" id="token" name="token" />
 						</div>
 						<button type="submit" class="btn btn-primary" id="tsubmit">View/Modify
 							existing slot</button>
@@ -36,21 +38,25 @@
 			<div class="card card-small">
 				<h5 class="card-header">Do you want to book a car service slot?</h5>
 				<div class="card-body">
-					<form class="row g-0" th:action="@{checkAvailability}" method="get">
+					<form id="enterdate" class="row g-0"
+						th:action="@{checkAvailability}" method="get">
 						<div class="mb-3">
 							<label for="date" class="form-label">Enter Date</label> 
-							<input type="text" class="form-control" name="date" id="date" required="required"/>
+							<input type="text" class="date form-control" name="date" id="date"
+								data-mask="0000-00-00" data-mask-selectonfocus="true"/>
 						</div>
-						<button type="submit" class="btn btn-primary" id="tsubmit">Check available slot</button>
+						<button type="submit" class="btn btn-primary" id="tsubmit">Check
+							available slot</button>
 					</form>
 				</div>
-				
 			</div>
 
 		</div>
 	</div>
-
-	<script src="/js/js-library.js"></script>
+	<script src="/js/jslibrary.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/validate.js"></script>
+	<script src="/js/homevalidation.js"></script>
+	<script src="/js/mask.js"></script>
 </section>
 </html>
