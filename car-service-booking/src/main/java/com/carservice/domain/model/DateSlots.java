@@ -23,7 +23,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "tb_dates")
 public class DateSlots implements Serializable{
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	@Temporal(TemporalType.DATE)
 	@Column(name = "date_slot", nullable = false, unique = true)
 	private Date date;

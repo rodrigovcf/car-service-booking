@@ -70,7 +70,7 @@ public class SlotsController {
 									Model model) throws ParseException {
 
 		ModelAndView mv = new ModelAndView("/bookSlot");
-		List<DateSlots> dates = dtSlotRep.findByDate(new SimpleDateFormat("yyyy-MM-dd").parse(date));
+		List<DateSlots> dates = dtSlotRep.findByDate(new SimpleDateFormat("dd-MM-yyyy").parse(date));
 
 		if(CheckSlots.verifySlot(slotsList, slot)) {
 			

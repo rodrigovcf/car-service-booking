@@ -26,7 +26,7 @@ public class SlotsService {
 
 	public List<AvailableSlots> loadSlots(String date) throws ParseException {
 
-		DateSlots dateSlots = new DateSlots(new SimpleDateFormat("yyyy-MM-dd").parse(date), null);		
+		DateSlots dateSlots = new DateSlots(new SimpleDateFormat("dd-MM-yyyy").parse(date), null);		
 		
 		if (!dateSlotsRep.existsByDate(dateSlots.getDate())) {
 			dateFullFree(dateSlots.getDate());

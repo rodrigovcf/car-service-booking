@@ -27,7 +27,10 @@ $("#entertoken").validate({
 	wrapper: "li",
 	rules:{
 		date:{
-			required: true
+			required: true,
+			dateISO: true,
+			date:false
+			
 		}
 	},
 	messages:{
@@ -42,8 +45,6 @@ $("#entertoken").validate({
  });
  
  
- $("enterdate").ready(function(){
-    $('.date').mask('0000-00-00')
-});
+ 
  
  
