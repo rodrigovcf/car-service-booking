@@ -10,9 +10,12 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 <section layout:fragment="content">
+	<div Id="error" class="error">
+		 <span id="result" th:text="${result}"></span>
+	</div>
 	<div class="card card-default">
 		<h5 class="card-header">Cancel Booking</h5>
-		<div id="token" class="card-body">
+		<div Id="result" class="card-body">
 			Success: Your booking with token number <span th:text="${token}"></span> is cancelled
 		</div>
 	</div>

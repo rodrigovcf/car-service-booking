@@ -86,7 +86,7 @@ public class SlotsController {
 			return mv;
 		}
 		mv = new ModelAndView(errorParam);
-		mv.addObject("result", "Slot not available!");
+		mv.addObject("result", "Failure: Slot is not available, please select slot from the available slots");
 		
 		return mv;
 	}

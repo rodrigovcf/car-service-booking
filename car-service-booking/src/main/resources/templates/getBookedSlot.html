@@ -11,10 +11,15 @@
 </head>
 
 <section layout:fragment="content">
-	<div id="booked" class="card card-default">
+	<div Id=error class="error">
+		<!-- <span th:if="${#lists.isEmpty(slots)}">Invalid Input</span> -->
+		<span th:if="${#lists.isEmpty(slots)}">Failure: No booking found for the given token number</span>
+	</div>
+	<div Id="booked" class="card card-default">
 		<div class="card-header">
 			<h3 class="container">Booked Slots</h3>
 		</div>
+		
 		<div class="card-body">
 			<table class="table table-bordered table-striped">
 				<thead>
@@ -30,14 +35,15 @@
 						<td th:text="${bookeds.name}"></td>
 						<td th:text="${bookeds.date.date}"></td>
 						<td th:text="${bookeds.slot}"></td>
-						<td><a id="cancel" th:href="@{/cancel(token=${bookeds.token})}" class="btn btn-danger">Cancel</a></td>
+						<td><div id="cancel"><a th:href="@{/cancel(token=${bookeds.token})}" class="btn btn-danger">Cancel</a></div></td>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<td colspan="6" th:if="${#lists.isEmpty(slots)}">
-							<div id=error class="error">Failure: No booking found for given token number</div>
+							<div Id=error th:if="${#lists.isEmpty(slots)}" class="error">failure No booking found for given token number</div>
 						</td>
-					</tr>
+					</tr> -->
 				</tbody>
+				
 			</table>
 		</div>
 	</div>

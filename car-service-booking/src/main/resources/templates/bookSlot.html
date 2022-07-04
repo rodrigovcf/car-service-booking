@@ -6,20 +6,24 @@
 <head>
 <meta charset="UTF-8" />
 <title>Book Slot</title>
-<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 <section layout:fragment="content">
+	<div Id="error" class="error">
+		Your slot booked successfully, please note your token number for future use, Token: <span th:text="${token}"></span>
+	</div>
+	<div id="token" class="card-body">
+			Your slot booked successfully, please note your token number for future use, Token: <span th:text="${token}"></span>
+		</div>
 	<div class="card card-default">
 		<h5 class="card-header">Request Status</h5>
 		<div id="token" class="card-body">
-			Your slot booked successfully, please note your token number for
-			future use,Token: <span th:text="${token}"></span>
+			Your slot booked successfully, please note your token number for future use, Token: <span th:text="${token}"></span>
 		</div>
-		<div id="error" class="error">
-					<p th:text=${message}></p>
-				</div> 
-		</div>
+	</div>
+
 
 	<div id="homepage">
 		<a th:href="@{home}" class="btn btn-primary btn-default">Home Page</a>

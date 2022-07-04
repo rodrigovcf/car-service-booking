@@ -7,36 +7,33 @@
 <head>
 <meta charset="UTF-8" />
 <title>Check Availability</title>
-<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 
 <section layout:fragment="content">
-	<div class="container container-check" id="booked">
-		<div id="error"
-			class="alert alert-success alert-dismissible 
-					fade show child success"
-			role="alert" th:if="${!#strings.isEmpty(message)}">
-			<span th:text="${message}"></span>
-			<button type="button" class="btn-close" data-bs-dismiss="alert"
-				aria-label="Close"></button>
-		</div>
+	<div Id="error" class="error">
+		 <span th:if="${#lists.isEmpty(slots)}">Failure: Slot is not available, please select slot from the available slots</span>
+	</div>
+	<div class="container container-check">
+
 
 		<div class="row">
 			<div class="col-sm-3 child">
-				<table id="availSlots" class="table table-bordered table-striped">
+				<table Id="availSlots" class="table table-bordered table-striped">
 					<thead>
 						<tr class="table-dark">
 							<th scope="col">Available Slots</th>
 						</tr>
 					</thead>
-					<tbody align="center">						
+					<tbody align="center">
 						<tr th:each="available : ${slots}">
-							
+
 							<td id="sl" th:text="${available.slot}"></td>
 						</tr>
 						<tr>
-							<td th:if="${#lists.isEmpty(slots)}">No slot available for this data</td>
+							<td th:if="${#lists.isEmpty(slots)}">Failure: Slot is not available, please select slot from the available slots</td>
 						</tr>
 					</tbody>
 				</table>
@@ -46,13 +43,15 @@
 				<div class="card">
 					<h5 class="card-header">Book slot</h5>
 					<div class="card-body">
-					<div id="error" class="error"></div>
-						<form id="slotform" class="row g-0" th:action="@{bookSlot}" method="POST">
+						<div Id="error" class="error"></div>
+						<form id="slotform" class="row g-0" th:action="@{bookSlot}"
+							method="POST">
 							<div class="mb-3">
 								<label for="date" class="form-label">Selected Date</label> <input
-									type="text" class="form-control" id="date" name="date" th:value="${date}" readonly/> <label
-									for="name" class="form-label">Enter Name</label> <input
-									type="text" class="form-control" id="name" name="name" /> <label
+									type="text" class="form-control" id="date" name="date"
+									th:value="${date}" readonly /> <label for="name"
+									class="form-label">Enter Name</label> <input type="text"
+									class="form-control" id="name" name="name" /> <label
 									for="slot" class="form-label">Enter Slot</label> <input
 									type="text" class="form-control" id="slot" name="slot" /> <br />
 								<button type="submit" class="btn btn-success" Id="submit">Book
@@ -64,7 +63,11 @@
 			</div>
 
 		</div>
-		<br /> 	<div id="homepage"><a th:href="@{home}" class="btn btn-primary btn-default">Home Page</a></div>
+		<br />
+		<div id="homepage">
+			<a th:href="@{home}" class="btn btn-primary btn-default">Home
+				Page</a>
+		</div>
 	</div>
 	<script th:src="@{/js/jslibrary.js}"></script>
 	<script th:src="@{/js/bootstrap.min.js}"></script>

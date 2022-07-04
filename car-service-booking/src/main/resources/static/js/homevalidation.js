@@ -4,16 +4,14 @@ $("#entertoken").validate({
 	wrapper: "li",
 	rules:{
 		token:{
-			required: true,
-			minlength: 10,
-			maxlength: 10
+			required: true
+			
 		}
 	},
 	messages:{
 		token:{
-			required: 'Please fill out this field.(token)',
-			minlength: 'The token must contain 10 characters(token)',
-			maxlength: 'The token must contain 10 characters(token)'
+			required: 'Please fill out this field.(token)'
+			
 		}
 	},
 	
